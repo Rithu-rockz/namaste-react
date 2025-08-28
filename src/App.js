@@ -9,6 +9,7 @@ import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 //import Grocery from "./components/Grocery";
 import { Suspense } from "react";
+import Shimmer from "./components/Shimmer.js";
 
 const AppLayout = () => {
   return (
@@ -33,7 +34,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: (
-          <Suspense>
+          <Suspense fallback={<h1>Loading....</h1>}>
             <About />
           </Suspense>
         ),
@@ -45,7 +46,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/grocery",
         element: (
-          <Suspense>
+          <Suspense fallback={<h1>Loading....</h1>}>
             {" "}
             <Grocery />
           </Suspense>

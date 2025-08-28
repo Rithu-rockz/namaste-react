@@ -129,3 +129,18 @@ import("path of component")
 so this creates sep js file ->network tab and in dist file
 ----while clicking on grocery component it takes time to fetch code so it throws error in console, to handle this we have suspense component
 wrap it inside so that it works fine
+
+
+sass and scss in css
+styled components
+
+
+epi -10
+Tailwind css
+this support all libraries like react, html etc...install accordingly
+ex: check under framework guide ->parcel
+-tailwind css use post css as this used to transform css inside js
+-if we need to give hard coded size then we can mention as w-[200px]
+-though there are many available bundler will load only required css for our project i.e lightweight so easy to load
+-main adv everything goes in flow, no need to go back nd froth
+

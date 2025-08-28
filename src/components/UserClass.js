@@ -28,7 +28,7 @@ class UserClass extends React.Component {
     //console.log(this.props.name + "child render called");
     const { login, id } = this.state.userInfo;
     return (
-      <div className="user-card">
+      <div className="border-1 m-2 p-2 w-50">
         <h2>Name: {login}</h2>
         <h2>ID:{id}</h2>
       </div>

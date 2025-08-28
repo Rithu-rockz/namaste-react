@@ -14,8 +14,10 @@ class About extends React.Component {
     console.log("Parent render called");
     return (
       <div>
-        <h1>Swiggy is the most popular app for delivery food on time</h1>
-        <h2>
+        <h1 className="bg-cyan-300 p-5">
+          Swiggy is the most popular app for delivery food on time
+        </h1>
+        <h2 className="bg-emerald-200 p-5">
           Swiggy is the most popular app for delivery food on timeSwiggy is the
           most popular app for delivery food on timeSwiggy is the most popular
           app for delivery food on timeSwiggy is the most popular app for
