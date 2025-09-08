@@ -130,10 +130,8 @@ so this creates sep js file ->network tab and in dist file
 ----while clicking on grocery component it takes time to fetch code so it throws error in console, to handle this we have suspense component
 wrap it inside so that it works fine
 
-
 sass and scss in css
 styled components
-
 
 epi -10
 Tailwind css
@@ -144,3 +142,31 @@ ex: check under framework guide ->parcel
 -though there are many available bundler will load only required css for our project i.e lightweight so easy to load
 -main adv everything goes in flow, no need to go back nd froth
 
+epi-11
+-Higher order component
+a function that takes component and return a func
+----this will not modify that component directly instead add something to the top of it like label, any other properties
+-UI layer, Data Layer
+Data layer (props, state, local variables)
+UI layer (JSX data) if we know to handle properly and with good perf of data layer then Ui layer will be super fast
+-expand and collapse we have used accordian model, where in this proj setItems is set to true and false in use state.
+imp..... while expanding one and try to expand the other the first one should be closed
+react developer tools help to show all the components what are the props used basically data layer, and left side jsx is Ui layer
+profiler - record what we do in the ui
+-----controlled and uncontrolled component
+each component in ItemList have their own state and list of items to be displayed they arent aware about the other ones as child handles all by itself, instead this has to be given to parent component this is called controlled component. where it has to expand or collapse depends on the props sent by parent. if it si not the case then it is said to be uncontrolled component which can do its own like managing state by own.
+to do this we can indirectly modify the state varible of parent by child
+-if we want to lift the state up if we have to control our children.
+--Props drilling
+-One way data stream- React-in which datas are passed from parent to its immediate child and from there it is passed to the next child and goes on.
+ex: ResMenu(parent)->ResMenuList(child)->ItemLIst(child) we can declare it as const dummy = "dummy data" and can be send as props to its children
+<....dummy ={dummy}/> to the last child can be accessed as console.log(dummy)
+this is not a good way, avoid props drilling (global data accessing by child ) instead go for context
+hooks - useContext
+this is mainly used when we want a particular data to be used in many places/pages and can be used as const {props/loggedInUser}=useContext(UserContext)
+this will have default value, if we need to modify it then in root component we can do by giving <usercontext.provider(overriding the default value) value={{loggedInUser:userName}}> this should be wrapped in all the component or to where it is needed
+check app.js for more info
+this is flexible can be used any no of time, nested is also fine
+to update live data using the same check body.js input field box
+same what context does is redux also does but it is external library...for small and medium appln context can be used
+even large appln context is used, but if we use redux it is scalable.

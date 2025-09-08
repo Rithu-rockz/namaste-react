@@ -3,5 +3,3 @@
     "@tailwindcss/postcss": {}
   }
 }
-
-//this is basically telling we use tailwind i.e bundler use postcssrc used to understand what is written inside tailwind
