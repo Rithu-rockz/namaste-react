@@ -4,7 +4,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { RESTAURANT_LIST_API } from "../utils/constants.js";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
-import userContext from "../utils/userContext.js";
+import userContext from "../utils/userContext";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);

@@ -170,3 +170,31 @@ this is flexible can be used any no of time, nested is also fine
 to update live data using the same check body.js input field box
 same what context does is redux also does but it is external library...for small and medium appln context can be used
 even large appln context is used, but if we use redux it is scalable.
+
+----REDUX 
+this is not mandatory in appln
+data is heavy/big object of large data kept globally so it can be accessed by any component so we can read and write operations are handled then use but even those appln can also be worked without using redux
+-as data is huge, we might think it is messy but datas are stored as slice like user slice, cart slice, theme slice and so on....
+-check diagram in notes
+for WRITING data:
+-we cant directly modify the slice, once we click on add button it will DISPATCH an (ACTION),
+it will call the (reducer)Function and FUNCTIOn modifies/update the slice of the redux store.
+for READING data:
+we will use SELECTOR and that will update the component(cart)this is(subscribing the store)
+
+Major datas of appln are kept inside this
+Defn:
+library for managing state
+other libraries...Zustand
+check doc for whu redux toolkit https://redux-toolkit.js.org/introduction/getting-started
+
+steps:
+install @reduxjs/toolkit and react-redux
+build our store
+connect the store to app
+then do write and read data 
+
+
+just like context this can also be wrapped inside wherever needed(comp)or to entire appln and provide the key as store inside it
+
+

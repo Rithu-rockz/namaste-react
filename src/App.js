@@ -12,23 +12,26 @@ import { Suspense } from "react";
 import Shimmer from "./components/Shimmer.js";
 import userContext from "./utils/userContext.js";
 import { useState, useEffect, useContext } from "react";
+/* import appStore from "./utils/appStore.js"; */
+import { Provider } from "react-redux";
 
 const AppLayout = () => {
-  const [userName, setUserName] = useState();
+  const [userName, setUserName] = useState("Dummy Name");
   useEffect(() => {
     const data = {
       name: "Saranya Muruganantham",
     };
     setUserName(data.name);
-    console.log(data.name);
   }, []);
   return (
-    <div className="app">
+   /*  <Provider store={appStore}> */
       <userContext.Provider value={{ loggedInUser: userName, setUserName }}>
-        <Header />
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
       </userContext.Provider>
-      <Outlet />
-    </div>
+    /* </Provider> */
   );
 };
 const Grocery = lazy(() => import("./components/Grocery"));
