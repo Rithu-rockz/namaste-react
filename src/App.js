@@ -12,26 +12,27 @@ import { Suspense } from "react";
 import Shimmer from "./components/Shimmer.js";
 import userContext from "./utils/userContext.js";
 import { useState, useEffect, useContext } from "react";
-/* import appStore from "./utils/appStore.js"; */
+import appStore from "./utils/appStore.js"; 
 import { Provider } from "react-redux";
+import Cart from "./components/Cart.js";
 
 const AppLayout = () => {
   const [userName, setUserName] = useState("Dummy Name");
   useEffect(() => {
     const data = {
-      name: "Saranya Muruganantham",
+      name: "Rithu<3",
     };
     setUserName(data.name);
   }, []);
   return (
-   /*  <Provider store={appStore}> */
+   <Provider store={appStore}> 
       <userContext.Provider value={{ loggedInUser: userName, setUserName }}>
         <div className="app">
           <Header />
           <Outlet />
         </div>
       </userContext.Provider>
-    /* </Provider> */
+     </Provider>
   );
 };
 const Grocery = lazy(() => import("./components/Grocery"));
@@ -70,6 +71,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:id",
         element: <ResMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,

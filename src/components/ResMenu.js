@@ -10,6 +10,7 @@ const ResMenu = () => {
   const [showIndex, setShowIndex] = useState(0);
 
   if (menuList === null) return <Shimmer />;
+  console.log("menuList:", menuList);
   const {
     name,
     avgRating,

@@ -171,7 +171,7 @@ to update live data using the same check body.js input field box
 same what context does is redux also does but it is external library...for small and medium appln context can be used
 even large appln context is used, but if we use redux it is scalable.
 
-----REDUX 
+----REDUX
 this is not mandatory in appln
 data is heavy/big object of large data kept globally so it can be accessed by any component so we can read and write operations are handled then use but even those appln can also be worked without using redux
 -as data is huge, we might think it is messy but datas are stored as slice like user slice, cart slice, theme slice and so on....
@@ -192,9 +192,39 @@ steps:
 install @reduxjs/toolkit and react-redux
 build our store
 connect the store to app
-then do write and read data 
-
+then do write and read data
 
 just like context this can also be wrapped inside wherever needed(comp)or to entire appln and provide the key as store inside it
 
+SELECTOR
+useSelector- hook for reading 
+-hook inside react
+useSelector hook give access to the store i.e what portion of the store we need access to
+check Header.js file
+Subscribing to the right portion of the store is the most important---else there will be a performance loss
+because anything changes in store will automatically gets updated to the cart instead subscribe only to cart items so that those changes will updated in cart
+
+DISPATCH
+useDispatch - func for dispatching
+then along with this func we need to call the addItem and whatever we add will be sent as payload and gets added to the cart
+
+learn the diff of {handleAddItem},{()=>handleAddItem(item)},{handleAddItem(item)}
+
+Slice will have multiple reducers, we export only one reducer out of it and to the app store we have reducer
+Imp - We are mutating the state inside the reducers of slice i.e modifying - push, pop and no need of returning
+Immer -takes care where it checks the diff between original and mutated ones and display the new state as per that
+
+redux toolkit use immer behind this
+-RTK either mutate the exisiting state or return a new state.
+return {items:[]} will be replaced in original state or u can write like state.items.length = 0;
+
+
+Testing
+small change in code can bring huge impact to the code
+-Manual testing
+-writing test cases to check the code
+types:
+-Unit testing - specific unit/component in isolation
+-Integration testing - ex if we search something in search bar then result will be provided where components(more than one)talk to each other and provide it
+-end to end testing(e2e) - testing whatever user does through out the application.
 
