@@ -228,3 +228,9 @@ types:
 -Integration testing - ex if we search something in search bar then result will be provided where components(more than one)talk to each other and provide it
 -end to end testing(e2e) - testing whatever user does through out the application.
 
+----JEST simple js testing library
+Setup:
+install react testing lib
+install jest
+install its dependencies - babel and config it.- but while doing this it may conflict as parcel use its own babel config so to make ours work
+config parcel to disable transpilation babel

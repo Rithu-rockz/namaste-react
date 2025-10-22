@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <div className="flex justify-between bg-pink-50 shadow-lg sm:bg-purple-50 md:bg-yellow-50 lg:bg-green-50">
       <div className="logo-container w-28 p-2">
-        <img src={LOGO_URL} alt="logo" />
+        <img src={LOGO_URL} alt="logo" className="h-[96px]" />
       </div>
       <div className="nav-items">
         <ul className="flex py-10">
@@ -37,7 +37,12 @@ const Header = () => {
             <Link to="/grocery">Grocery</Link>
           </li>
           <li className="mr-4">
-            <Link to="/cart">{cartItems.length}Cart</Link>
+            <Link to="/cart">
+              <span className="inline-block bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded mr-1">
+                {cartItems.length}
+              </span>
+              Cart
+            </Link>
           </li>
           <button
             className="login-btn"
