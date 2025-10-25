@@ -5,25 +5,24 @@ import { useDispatch } from "react-redux";
 import { clearCart } from "../utils/cartSlice";
 
 const Cart = () => {
-  //const mergedCartItemsById = (items) => {    const map = new Map();    for (const item of items) {      const id = item.card.info.id;      const price = item.card.info.price / 100;  if (map.has(id)) {
-  //map.get(item.card.info.id).quantity += item.quantity;      } else {        map.set(item.card.info.id, {          ...item,          total: (item.card.info.price / 100) * item.quantity,        }); // clone to avoid mutation      }}
-  //return Array.from(map.values()); // };
-
   const mergedCartItemsById = (items) => {
     const map = new Map();
-
     for (const item of items) {
       const id = item.card.info.id;
-      const price = item.card.info.price / 100;
-      // Simply overwrite instead of adding up
-      map.set(id, {
-        ...item,
-        total: price * item.quantity,
-      });
+      if (map.has(id)) {
+        map.get(id).quantity += item.quantity;
+        map.get(id).total += (item.card.info.price / 100) * item.quantity;
+      } else {
+        map.set(id, {
+          ...item,
+          total: (item.card.info.price / 100) * item.quantity,
+        }); // clone to avoid mutation
+      }
     }
-
     return Array.from(map.values());
   };
+
+  
 
   const cartItems = useSelector((store) =>
     mergedCartItemsById(store.cart.items)

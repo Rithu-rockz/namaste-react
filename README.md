@@ -232,5 +232,17 @@ types:
 Setup:
 install react testing lib
 install jest
-install its dependencies - babel and config it.- but while doing this it may conflict as parcel use its own babel config so to make ours work
+install its(babel) dependencies - babel and config it.- but while doing this it may conflict as parcel use its own babel config so to make ours work
 config parcel to disable transpilation babel
+command
+-npm run test(scripts in package.json file)
+jest confirg - npx jest --init
+install jsdom library
+test case started
+any js file inside__tests__or ts file will be considered as test file
+install jsdom library
+include @babel/preset-react to make jsx works in test cases
+include @babel/preset-react in config file
+npm i -D @testing-library/jest-dom
+
+
